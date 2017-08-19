@@ -1,0 +1,6 @@
+E:\Web ASP\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.dll.config
+E:\Web ASP\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.dll
+E:\Web ASP\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.pdb
+E:\Web ASP\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.dll
+E:\Web ASP\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.pdb
+E:\Web ASP\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.csprojResolveAssemblyReference.cache

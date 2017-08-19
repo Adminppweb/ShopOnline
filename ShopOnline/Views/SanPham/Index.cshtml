@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ShopOnlineConnection.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="features_items">
+            <!--features_items-->
+            <h2 class="title text-center">Features Items</h2>
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-3">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="~/Content/client/images/home/product1.jpg" alt="" />
+                                <h2>@Html.ActionLink(item.TenSP, "Details", new { id = item.ID_SP })</h2>
+                                <p>@item.GiaBan</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

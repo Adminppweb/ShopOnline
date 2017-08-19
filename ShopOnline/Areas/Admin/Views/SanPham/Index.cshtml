@@ -1,0 +1,226 @@
+﻿@model IEnumerable<ShopOnlineConnection.viewSanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Sản Phẩm
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","HomeAd")" class=""><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">Danh Sách Sản Phẩm</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Thêm Sản Phẩm</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <!-- /.form-group -->
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Mã Sản Phẩm">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Số Lượng">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhà Sản Xuất</label>
+                                    <select class="form-control select2">
+                                        <option selected="selected">Apple</option>
+                                        <option>SamSung</option>
+                                        <option>Sonny</option>
+                                        <option>Asus</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên Sản Phẩm">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Lượt Xem">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tình Trạng</label>
+                                    <select class="form-control select2">
+                                        <option selected="selected">Còn Hàng</option>
+                                        <option>Hết Hàng</option>
+                                        <option>Lỗi Hệ Thống</option>
+                                        <option>Ngưng Sản Xuất</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker" placeholder="Ngày Tạo">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Thêm Hình">
+                                </div>
+                                <div class="form-group">
+                                    <label>Người Tạo</label>
+                                    <select class="form-control select2">
+                                        <option selected="selected">Phan Bình</option>
+                                        <option>Đập Đá</option>
+                                        <option>Tablet</option>
+                                        <option>LapTop</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Giá">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Giá Ưu Đã">
+                                </div>
+                                <div class="form-group">
+                                    <label>Loại Sản Phẩm</label>
+                                    <select type="text" class="form-control select2" id="exampleInputEmail1" placeholder="Loại Sản Phẩm">
+                                        <option selected="selected">SmartPhone</option>
+                                        <option>Đập Đá</option>
+                                        <option>Tablet</option>
+                                        <option>LapTop</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Chọn hình</label>
+                                    <input type="file" id="exampleInputFile">
+                                    <p class="help-block"></p>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" placeholder="Mô tả"></textarea>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-12">
+                                <center>
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary">Thêm</button>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.box -->
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Danh Sách Sản Phẩm</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TenSP)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.GiaBan)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MoTa)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SoLuongTon)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SoLuongBan)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TinhTrangSP)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NgayNhap)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.HinhAnhSP)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TenLoai)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TenNSX)
+                                </th>
+                                <th>Chức Năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenSP)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.GiaBan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MoTa)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoLuongTon)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoLuongBan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TinhTrangSP)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NgayNhap)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.HinhAnhSP)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenLoai)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenNSX)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_SP }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_SP })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+
+
+
+

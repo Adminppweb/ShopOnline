@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShopOnlineModelStoreContainer" CdmEntityContainer="ShopOnlineEntities">
+    <EntitySetMapping Name="Businesses">
+      <EntityTypeMapping TypeName="ShopOnlineModel.Business">
+        <MappingFragment StoreEntitySet="Business">
+          <ScalarProperty Name="ID_Bus" ColumnName="ID_Bus" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHoaDons">
+      <EntityTypeMapping TypeName="ShopOnlineModel.CTHoaDon">
+        <MappingFragment StoreEntitySet="CTHoaDon">
+          <ScalarProperty Name="ID_SanPham" ColumnName="ID_SanPham" />
+          <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDons">
+      <EntityTypeMapping TypeName="ShopOnlineModel.HoaDon">
+        <MappingFragment StoreEntitySet="HoaDon">
+          <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
+          <ScalarProperty Name="ID_ThanhVien" ColumnName="ID_ThanhVien" />
+          <ScalarProperty Name="ThoiGianMua" ColumnName="ThoiGianMua" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="TinhTrang_HD" ColumnName="TinhTrang_HD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiSPs">
+      <EntityTypeMapping TypeName="ShopOnlineModel.LoaiSP">
+        <MappingFragment StoreEntitySet="LoaiSP">
+          <ScalarProperty Name="ID_Loai" ColumnName="ID_Loai" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanXets">
+      <EntityTypeMapping TypeName="ShopOnlineModel.NhanXet">
+        <MappingFragment StoreEntitySet="NhanXet">
+          <ScalarProperty Name="ID_NX" ColumnName="ID_NX" />
+          <ScalarProperty Name="ID_SanPham" ColumnName="ID_SanPham" />
+          <ScalarProperty Name="ID_ThanhVien" ColumnName="ID_ThanhVien" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaSanXuats">
+      <EntityTypeMapping TypeName="ShopOnlineModel.NhaSanXuat">
+        <MappingFragment StoreEntitySet="NhaSanXuat">
+          <ScalarProperty Name="ID_NSX" ColumnName="ID_NSX" />
+          <ScalarProperty Name="TenNSX" ColumnName="TenNSX" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="ShopOnlineModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="ID_PM" ColumnName="ID_PM" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="Descripti" ColumnName="Descripti" />
+          <ScalarProperty Name="ID_Business" ColumnName="ID_Business" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="ShopOnlineModel.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="ID_PQ" ColumnName="ID_PQ" />
+          <ScalarProperty Name="LoaiQuyen" ColumnName="LoaiQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="ShopOnlineModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="SoLuongBan" ColumnName="SoLuongBan" />
+          <ScalarProperty Name="TinhTrangSP" ColumnName="TinhTrangSP" />
+          <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
+          <ScalarProperty Name="ID_NhaSanXuat" ColumnName="ID_NhaSanXuat" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="HinhAnhSP" ColumnName="HinhAnhSP" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ShopOnlineModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhViens">
+      <EntityTypeMapping TypeName="ShopOnlineModel.ThanhVien">
+        <MappingFragment StoreEntitySet="ThanhVien">
+          <ScalarProperty Name="ID_TV" ColumnName="ID_TV" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="ID_PhanQuyen" ColumnName="ID_PhanQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAdmins">
+      <EntityTypeMapping TypeName="ShopOnlineModel.UserAdmin">
+        <MappingFragment StoreEntitySet="UserAdmin">
+          <ScalarProperty Name="ID_UD" ColumnName="ID_UD" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWor" ColumnName="PassWor" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Addres" ColumnName="Addres" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Avartar" ColumnName="Avartar" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Allowed" ColumnName="Allowed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="GrantPermission" TypeName="ShopOnlineModel.GrantPermission" StoreEntitySet="GrantPermission">
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="ID_PM" ColumnName="ID_Permission" />
+      </EndProperty>
+      <EndProperty Name="UserAdmin">
+        <ScalarProperty Name="ID_UD" ColumnName="ID_User" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

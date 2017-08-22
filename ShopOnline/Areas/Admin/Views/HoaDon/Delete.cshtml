@@ -1,0 +1,57 @@
+﻿@model ShopOnline.Areas.HoaDon
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HoaDon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianMua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianMua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang_HD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang_HD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhVien.TaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhVien.TaiKhoan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

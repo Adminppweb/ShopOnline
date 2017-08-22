@@ -1,0 +1,51 @@
+﻿@model ShopOnline.Areas.HoaDon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HoaDon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianMua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianMua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang_HD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang_HD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhVien.TaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhVien.TaiKhoan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_HoaDon }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

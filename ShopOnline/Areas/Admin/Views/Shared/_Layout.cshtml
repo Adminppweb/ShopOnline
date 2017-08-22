@@ -258,18 +258,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">DANH MỤC</li>
-                    <li class="active treeview">
-                        <a href="#">
-                            <i class="fa fa-home"></i> <span>Cấu Hình</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="#"><i class="fa fa-cog"></i> Cơ Bản</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Nâng Cao</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="@Url.Action("Index","Home")" class=""><i class="fa fa-home"></i> Home</a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-user"></i> <span>Quản Trị Người Dùng</span>
@@ -278,81 +267,16 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","NguoiDung")" class=""><i class="fa fa-user"></i> Gia Sư</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Phụ Huynh</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Quản Trị</a></li>
+                            <li><a href="@Url.Action("Index","ThanhVien")" class=""><i class="fa fa-user"></i> Thành Viên</a></li>
+                            <li><a href="@Url.Action("Index","UserAdmin")"><i class="fa fa-user"></i> Quản Trị</a></li>
                             <li><a href="#"><i class="fa fa-lock"></i> Cấp Quyền</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-cart-arrow-down"></i> <span>Giỏ Hàng</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="~/Content/admin/pages/layout/top-nav.html"><i class="fa fa-cart-arrow-down"></i> Khách Hàng Đã</a></li>
-                            <li><a href="~/Content/admin/pages/layout/boxed.html"><i class="fa fa-cart-arrow-down"></i> Quản Trị</a></li>
-                            <li><a href="~/Content/admin/pages/layout/fixed.html"><i class="fa fa-cart-arrow-down"></i> Người Giao Hàng</a></li>
-                            <li><a href="~/Content/admin/pages/layout/collapsed-sidebar.html"><i class="fa fa-cart-arrow-down"></i> Cấp Quyền</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-university"></i> <span>Nhà Sản Xuất</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("index","NhaSanXuat")" class=""><i class="fa fa-circle-o"></i> Danh Sách Nhà sản xuất</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Tình Trạng</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle-o"></i> <span>Loại Sản Phẩm</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("index","LoaiSanPham")" class=""><i class="fa fa-circle-o"></i> Danh Sách Loại Sản Phẩm</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Tình Trạng</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>Sản Phẩm</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("index","SanPham")" class=""><i class="fa fa-circle-o"></i> Danh Sách Sản Phẩm</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Sản Phẩm Mới Nhất</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Sản Phẩm Xem Nhiều Nhất</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Sản Phẩm Khuyến Mãi</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Sản Phẩm Sale</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Tình trạng</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-file-pdf-o"></i> <span>Đơn Hàng</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i> Danh Sách Đơn Hàng</a></li>
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i> Đơn Hàng Đã Giao</a></li>
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i> Đơn Hàng Đang Giao</a></li>
-                            <li><a href="#"><i class="fa fa-file-pdf-o"></i> Đơn Hàng Đã Hủy</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="@Url.Action("Index","NhaSanXuat")" class=""><i class="fa fa-university"></i> Nhà Sản Xuất</a></li>
+                    <li><a href="@Url.Action("Index","LoaiSanPham")" class=""><i class="fa fa-circle-o"></i> Loại Sản Phẩm</a></li>
+                    <li><a href="@Url.Action("Index","SanPham")" class=""><i class="fa fa-laptop"></i> Danh Sách Sản Phẩm</a></li>
+                    <li><a href="@Url.Action("Index","HoaDon")" class=""><i class="fa fa-cart-arrow-down"></i>Giỏ Hàng</a></li>
+                    <li><a href="@Url.Action("Index","ChiTietHoaDon")" class=""><i class="fa fa-file-pdf-o"></i>Đơn Hàng</a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i> <span>Báo Cáo</span>
@@ -368,7 +292,7 @@
                             <li><a href="#"><i class="fa fa-folder"></i> Tổng Doanh Thu</a></li>
                         </ul>
                     </li>
-                    <li><a href="@Url.Action("Index","PhanHoi")" class=""><i class="fa fa-circle-o"></i> Phản Hồi Khách Hàng</a></li>
+                    <li><a href="@Url.Action("Index","NhanXet")" class=""><i class="fa fa-circle-o"></i> Phản Hồi Khách Hàng</a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->

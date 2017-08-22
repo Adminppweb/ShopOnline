@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ShopOnline.Areas.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Giỏ Hàng
+        <small>Danh sách giỏ hàng</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","HoaDon")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Giỏ hàng</li>
+    </ol>
+</section>
+<div class="col-md-12">
+    <div class="box">
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ThoiGianMua)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TongTien)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TinhTrang_HD)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ThanhVien.TaiKhoan)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ThoiGianMua)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TongTien)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TinhTrang_HD)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ThanhVien.TaiKhoan)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID_HoaDon }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID_HoaDon }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HoaDon })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

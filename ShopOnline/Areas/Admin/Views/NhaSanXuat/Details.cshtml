@@ -1,0 +1,50 @@
+﻿@model ShopOnline.Areas.NhaSanXuat
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Details
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","NhaSanXuat")"><i class="fa fa-dashboard"></i>Nhà sản xuất</a></li>
+        <li class="active">Details</li>
+    </ol>
+</section>
+<div class="col-md-12">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chi tiết nhà sản xuất</h3>
+        </div>
+        <form class="form-horizontal">
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenNSX)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TenNSX)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UserAdmin.UserName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UserAdmin.UserName)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID_NSX }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </form>
+    </div>
+</div>

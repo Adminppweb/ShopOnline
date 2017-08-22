@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ShopOnline.Areas.NhanXet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Phản Hồi
+        <small>Danh sách khách hàng nhận xét</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","NhanXet")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Phản hồi</li>
+    </ol>
+</section>
+<div class="col-md-12">
+    <div class="box">
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NoiDung)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SanPham.TenSP)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ThanhVien.TaiKhoan)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoiDung)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ThanhVien.TaiKhoan)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", new { id = item.ID_NX }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID_NX })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -196,11 +198,76 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietHoaDonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhanXetController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaSanXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThanhVienController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserAdminController.cs" />
+    <Compile Include="Areas\Business.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CTHoaDon.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\HoaDon.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\LoaiSP.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\NhanXet.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\NhaSanXuat.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Permission.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\PhanQuyen.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SanPham.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\ThanhVien.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UserAdmin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CTHoaDonController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NhanXetController.cs" />
+    <Compile Include="Controllers\NhaSanXuatController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\ThanhVienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +278,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\admin\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\admin\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\admin\bootstrap\css\bootstrap.css" />
@@ -1220,7 +1297,42 @@
     <Content Include="Content\client\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <EntityDeploy Include="Areas\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuat\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuat\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuat\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuat\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuat\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanXet\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanXet\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanXet\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThanhVien\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ThanhVien\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Content\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\Scripts\jquery-1.10.2.js" />
     <Content Include="Content\Scripts\jquery-1.10.2.min.js" />
@@ -1273,6 +1385,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Views\CTHoaDon\" />
+    <Folder Include="Views\HoaDon\" />
+    <Folder Include="Views\LoaiSanPham\" />
+    <Folder Include="Views\NhanXet\" />
+    <Folder Include="Views\NhaSanXuat\" />
+    <Folder Include="Views\ThanhVien\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -1287,6 +1405,9 @@
       <Project>{2d27a3ab-005f-40f5-9739-42a55d82e4d9}</Project>
       <Name>ShopOnlineBus</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

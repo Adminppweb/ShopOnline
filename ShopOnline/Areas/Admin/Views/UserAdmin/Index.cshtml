@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ShopOnline.Areas.UserAdmin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Quản trị
+        <small>Quản trị viên</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","UserAdmin")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Quản trị viên</li>
+    </ol>
+</section>
+<div class="col-md-12">
+    <div class="box">
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PassWor)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Birthday)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Addres)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Avartar)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IsAdmin)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Allowed)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PassWor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Birthday)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Addres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Avartar)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsAdmin)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Allowed)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", new { id = item.ID_UD })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

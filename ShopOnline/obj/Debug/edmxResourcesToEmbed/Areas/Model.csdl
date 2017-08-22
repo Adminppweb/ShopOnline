@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Business">
+    <Key>
+      <PropertyRef Name="ID_Bus" />
+    </Key>
+    <Property Name="ID_Bus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Permissions" Relationship="Self.FK_Permission_Business" FromRole="Business" ToRole="Permission" />
+  </EntityType>
+  <EntityType Name="CTHoaDon">
+    <Key>
+      <PropertyRef Name="ID_SanPham" />
+      <PropertyRef Name="ID_HoaDon" />
+    </Key>
+    <Property Name="ID_SanPham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_HoaDon" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HoaDon" Relationship="Self.FK_CTHoaDon_HoaDon" FromRole="CTHoaDon" ToRole="HoaDon" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK_CTHoaDon_SanPham" FromRole="CTHoaDon" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="ID_HoaDon" />
+    </Key>
+    <Property Name="ID_HoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_ThanhVien" Type="Int32" />
+    <Property Name="ThoiGianMua" Type="DateTime" Precision="3" />
+    <Property Name="TongTien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TinhTrang_HD" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CTHoaDons" Relationship="Self.FK_CTHoaDon_HoaDon" FromRole="HoaDon" ToRole="CTHoaDon" />
+    <NavigationProperty Name="ThanhVien" Relationship="Self.FK_HoaDon_ThanhVien" FromRole="HoaDon" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="LoaiSP">
+    <Key>
+      <PropertyRef Name="ID_Loai" />
+    </Key>
+    <Property Name="ID_Loai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ID_User" Type="Int32" />
+    <NavigationProperty Name="UserAdmin" Relationship="Self.FK_LoaiSP_UserAdmin" FromRole="LoaiSP" ToRole="UserAdmin" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_LoaiSP" FromRole="LoaiSP" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="NhanXet">
+    <Key>
+      <PropertyRef Name="ID_NX" />
+    </Key>
+    <Property Name="ID_NX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_SanPham" Type="Int32" />
+    <Property Name="ID_ThanhVien" Type="Int32" />
+    <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK_NhanXet_SanPham" FromRole="NhanXet" ToRole="SanPham" />
+    <NavigationProperty Name="ThanhVien" Relationship="Self.FK_NhanXet_ThanhVien" FromRole="NhanXet" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="ID_NSX" />
+    </Key>
+    <Property Name="ID_NSX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNSX" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ID_User" Type="Int32" />
+    <NavigationProperty Name="UserAdmin" Relationship="Self.FK_NhaSanXuat_UserAdmin" FromRole="NhaSanXuat" ToRole="UserAdmin" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_NhaSanXuat" FromRole="NhaSanXuat" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="ID_PM" />
+    </Key>
+    <Property Name="ID_PM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Descripti" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Business" Type="Int32" />
+    <NavigationProperty Name="Business" Relationship="Self.FK_Permission_Business" FromRole="Permission" ToRole="Business" />
+    <NavigationProperty Name="UserAdmins" Relationship="Self.GrantPermission" FromRole="Permission" ToRole="UserAdmin" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="ID_PQ" />
+    </Key>
+    <Property Name="ID_PQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoaiQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ThanhViens" Relationship="Self.FK_ThanhVien_PhanQuyen" FromRole="PhanQuyen" ToRole="ThanhVien" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="ID_SP" />
+    </Key>
+    <Property Name="ID_SP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GiaBan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MoTa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongTon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SoLuongBan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TinhTrangSP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_LoaiSP" Type="Int32" />
+    <Property Name="ID_NhaSanXuat" Type="Int32" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="3" />
+    <Property Name="HinhAnhSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_User" Type="Int32" />
+    <NavigationProperty Name="CTHoaDons" Relationship="Self.FK_CTHoaDon_SanPham" FromRole="SanPham" ToRole="CTHoaDon" />
+    <NavigationProperty Name="LoaiSP" Relationship="Self.FK_SanPham_LoaiSP" FromRole="SanPham" ToRole="LoaiSP" />
+    <NavigationProperty Name="NhanXets" Relationship="Self.FK_NhanXet_SanPham" FromRole="SanPham" ToRole="NhanXet" />
+    <NavigationProperty Name="NhaSanXuat" Relationship="Self.FK_SanPham_NhaSanXuat" FromRole="SanPham" ToRole="NhaSanXuat" />
+    <NavigationProperty Name="UserAdmin" Relationship="Self.FK_SanPham_UserAdmin" FromRole="SanPham" ToRole="UserAdmin" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ThanhVien">
+    <Key>
+      <PropertyRef Name="ID_TV" />
+    </Key>
+    <Property Name="ID_TV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaiKhoan" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="SoDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CMND" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="HinhAnh" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ID_PhanQuyen" Type="Int32" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_ThanhVien" FromRole="ThanhVien" ToRole="HoaDon" />
+    <NavigationProperty Name="NhanXets" Relationship="Self.FK_NhanXet_ThanhVien" FromRole="ThanhVien" ToRole="NhanXet" />
+    <NavigationProperty Name="PhanQuyen" Relationship="Self.FK_ThanhVien_PhanQuyen" FromRole="ThanhVien" ToRole="PhanQuyen" />
+  </EntityType>
+  <EntityType Name="UserAdmin">
+    <Key>
+      <PropertyRef Name="ID_UD" />
+    </Key>
+    <Property Name="ID_UD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="PassWor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Addres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Avartar" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Allowed" Type="Boolean" />
+    <NavigationProperty Name="LoaiSPs" Relationship="Self.FK_LoaiSP_UserAdmin" FromRole="UserAdmin" ToRole="LoaiSP" />
+    <NavigationProperty Name="NhaSanXuats" Relationship="Self.FK_NhaSanXuat_UserAdmin" FromRole="UserAdmin" ToRole="NhaSanXuat" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_UserAdmin" FromRole="UserAdmin" ToRole="SanPham" />
+    <NavigationProperty Name="Permissions" Relationship="Self.GrantPermission" FromRole="UserAdmin" ToRole="Permission" />
+  </EntityType>
+  <Association Name="FK_Permission_Business">
+    <End Role="Business" Type="Self.Business" Multiplicity="0..1" />
+    <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Business">
+        <PropertyRef Name="ID_Bus" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="ID_Business" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHoaDon_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="CTHoaDon" Type="Self.CTHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="ID_HoaDon" />
+      </Principal>
+      <Dependent Role="CTHoaDon">
+        <PropertyRef Name="ID_HoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHoaDon_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="CTHoaDon" Type="Self.CTHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="CTHoaDon">
+        <PropertyRef Name="ID_SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_ThanhVien">
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="ID_TV" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="ID_ThanhVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoaiSP_UserAdmin">
+    <End Role="UserAdmin" Type="Self.UserAdmin" Multiplicity="0..1" />
+    <End Role="LoaiSP" Type="Self.LoaiSP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAdmin">
+        <PropertyRef Name="ID_UD" />
+      </Principal>
+      <Dependent Role="LoaiSP">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_LoaiSP">
+    <End Role="LoaiSP" Type="Self.LoaiSP" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSP">
+        <PropertyRef Name="ID_Loai" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="ID_LoaiSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanXet_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+    <End Role="NhanXet" Type="Self.NhanXet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="NhanXet">
+        <PropertyRef Name="ID_SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanXet_ThanhVien">
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
+    <End Role="NhanXet" Type="Self.NhanXet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="ID_TV" />
+      </Principal>
+      <Dependent Role="NhanXet">
+        <PropertyRef Name="ID_ThanhVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhaSanXuat_UserAdmin">
+    <End Role="UserAdmin" Type="Self.UserAdmin" Multiplicity="0..1" />
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAdmin">
+        <PropertyRef Name="ID_UD" />
+      </Principal>
+      <Dependent Role="NhaSanXuat">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_NhaSanXuat">
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="ID_NSX" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="ID_NhaSanXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhVien_PhanQuyen">
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="0..1" />
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanQuyen">
+        <PropertyRef Name="ID_PQ" />
+      </Principal>
+      <Dependent Role="ThanhVien">
+        <PropertyRef Name="ID_PhanQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_UserAdmin">
+    <End Role="UserAdmin" Type="Self.UserAdmin" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAdmin">
+        <PropertyRef Name="ID_UD" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GrantPermission">
+    <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+    <End Role="UserAdmin" Type="Self.UserAdmin" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ShopOnlineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Businesses" EntityType="Self.Business" />
+    <EntitySet Name="CTHoaDons" EntityType="Self.CTHoaDon" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="LoaiSPs" EntityType="Self.LoaiSP" />
+    <EntitySet Name="NhanXets" EntityType="Self.NhanXet" />
+    <EntitySet Name="NhaSanXuats" EntityType="Self.NhaSanXuat" />
+    <EntitySet Name="Permissions" EntityType="Self.Permission" />
+    <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ThanhViens" EntityType="Self.ThanhVien" />
+    <EntitySet Name="UserAdmins" EntityType="Self.UserAdmin" />
+    <AssociationSet Name="FK_Permission_Business" Association="Self.FK_Permission_Business">
+      <End Role="Business" EntitySet="Businesses" />
+      <End Role="Permission" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHoaDon_HoaDon" Association="Self.FK_CTHoaDon_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDons" />
+      <End Role="CTHoaDon" EntitySet="CTHoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHoaDon_SanPham" Association="Self.FK_CTHoaDon_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="CTHoaDon" EntitySet="CTHoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_ThanhVien" Association="Self.FK_HoaDon_ThanhVien">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoaiSP_UserAdmin" Association="Self.FK_LoaiSP_UserAdmin">
+      <End Role="UserAdmin" EntitySet="UserAdmins" />
+      <End Role="LoaiSP" EntitySet="LoaiSPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_LoaiSP" Association="Self.FK_SanPham_LoaiSP">
+      <End Role="LoaiSP" EntitySet="LoaiSPs" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanXet_SanPham" Association="Self.FK_NhanXet_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="NhanXet" EntitySet="NhanXets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanXet_ThanhVien" Association="Self.FK_NhanXet_ThanhVien">
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+      <End Role="NhanXet" EntitySet="NhanXets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhaSanXuat_UserAdmin" Association="Self.FK_NhaSanXuat_UserAdmin">
+      <End Role="UserAdmin" EntitySet="UserAdmins" />
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_NhaSanXuat" Association="Self.FK_SanPham_NhaSanXuat">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuats" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhVien_PhanQuyen" Association="Self.FK_ThanhVien_PhanQuyen">
+      <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+      <End Role="ThanhVien" EntitySet="ThanhViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_UserAdmin" Association="Self.FK_SanPham_UserAdmin">
+      <End Role="UserAdmin" EntitySet="UserAdmins" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="GrantPermission" Association="Self.GrantPermission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="UserAdmin" EntitySet="UserAdmins" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -4,3 +4,9 @@ E:\Web ASP\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.pdb
 E:\Web ASP\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.dll
 E:\Web ASP\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.pdb
 E:\Web ASP\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.csprojResolveAssemblyReference.cache
+C:\Users\Phan Binh\Desktop\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.dll.config
+C:\Users\Phan Binh\Desktop\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.dll
+C:\Users\Phan Binh\Desktop\ShopOnline\ShopOnlineBus\bin\Debug\ShopOnlineBus.pdb
+C:\Users\Phan Binh\Desktop\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.csprojResolveAssemblyReference.cache
+C:\Users\Phan Binh\Desktop\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.dll
+C:\Users\Phan Binh\Desktop\ShopOnline\ShopOnlineBus\obj\Debug\ShopOnlineBus.pdb
